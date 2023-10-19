@@ -5,7 +5,7 @@
   <p align="center">
   A React + Vite implementation of the YAML Monaco editor with JSON Schema validation provided by <a href="https://github.com/remcohaszing/monaco-yaml"><code>monaco-yaml</code></a>.
     <br />
-   <a href="yaml-monaco-jsonschema.vercel.app">View yaml-monaco-jsonschema in action</a>
+   <a href="https://yaml-monaco-jsonschema.vercel.app">View yaml-monaco-jsonschema in action</a>
   </p>
 </p>
 
