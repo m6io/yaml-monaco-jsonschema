@@ -1,0 +1,150 @@
+:root {
+  --background-color: hsl(0, 0%, 96%);
+  --editor-background: hsl(60, 100%, 100%);
+  --error-color: hsl(0, 85%, 62%);
+  --foreground-color: hsl(0, 0%, 0%);
+  --primary-color: hsl(189, 100%, 63%);
+  --shadow-color: hsla(0, 0%, 27%, 0.239);
+  --scrollbar-color: hsla(0, 0%, 47%, 0.4);
+  --warning-color: hsl(49, 100%, 40%);
+}
+h1 {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+}
+h3 {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+p {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+blockquote {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+pre {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
+}
+div {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: hsl(0, 0%, 23%);
+    --editor-background: hsl(0, 0%, 12%);
+    --foreground-color: hsl(0, 0%, 100%);
+    --shadow-color: hsl(0, 0%, 43%);
+  }
+}
+
+.app-header {
+  margin: 2rem;
+}
+
+main {
+  background: var(--editor-background);
+}
+
+#problems {
+  border-top: 1px solid var(--shadow-color);
+  flex: 0 0 20vh;
+  color: var(--foreground-color);
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
+.problem {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  padding: 0.25rem;
+}
+
+.problem:hover {
+  background-color: var(--shadow-color);
+}
+
+.problem-text {
+  margin-left: 0.5rem;
+}
+
+.problem .codicon-warning {
+  color: var(--warning-color);
+}
+
+.problem .codicon-error {
+  color: var(--error-color);
+}
+
+*::-webkit-scrollbar {
+  box-shadow: 1px 0 0 0 var(--scrollbar-color) inset;
+  width: 14px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+}
+
+.warning {
+  color: var(--warning-color);
+}
+
+.tip {
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 10px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+
+.tip .tip-title {
+  color: var(--primary-color);
+}
+
+.tip .tip-text {
+  color: var(--foreground-color);
+}
+
+button {
+  border: none;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
