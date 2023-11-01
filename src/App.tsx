@@ -6,7 +6,10 @@ import Samples from "./components/samples"
 import { TailwindIndicator } from "./components/tailwind-indicator"
 import { AppState, useStore } from "./store"
 import "./userWorker"
+import EditorSkeleton from "./components/editor-skeleton"
 import { YamlEditor } from "./components/yaml-editor"
+import useIsResizing from "./hooks/useIsResizing"
+import { cn } from "./lib/utils"
 
 const selector = (state: AppState) => ({
   schema: state.schema,
@@ -29,6 +32,7 @@ const routes = [{ path: "/", element: <Home /> }]
 
 function Home() {
   const { schema } = useStore(selector)
+  const { isResizing } = useIsResizing() // This is a custom hook that returns true if the window is being resized. This is mainly a workaround for the monaco-editor not resizing properly when the window is resized.
 
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
@@ -48,18 +52,44 @@ function Home() {
           <div className="flex flex-col gap-4 lg:flex-row">
             <div className="w-full lg:w-1/2">
               <ResponsiveContainer heading="JSON Schema">
-                <div className="flex h-[400px] flex-col">
+                <div
+                  className={cn(
+                    "flex h-[400px] flex-col",
+                    isResizing && "hidden",
+                  )}
+                >
                   <JsonEditor
                     editorId="jsonSchemaEditorContainer"
                     jsonData={schema}
                   />
                 </div>
+                <div
+                  className={cn(
+                    "flex h-[400px] flex-col",
+                    !isResizing && "hidden",
+                  )}
+                >
+                  <EditorSkeleton />
+                </div>
               </ResponsiveContainer>
             </div>
             <div className="w-full lg:w-1/2">
               <ResponsiveContainer heading="YAML Editor">
-                <div className="flex flex-col">
+                <div
+                  className={cn(
+                    "flex h-[400px] flex-col",
+                    isResizing && "hidden",
+                  )}
+                >
                   <YamlEditor />
+                </div>
+                <div
+                  className={cn(
+                    "flex h-[400px] flex-col",
+                    !isResizing && "hidden",
+                  )}
+                >
+                  <EditorSkeleton />
                 </div>
               </ResponsiveContainer>
             </div>
